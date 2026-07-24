@@ -2,8 +2,15 @@ name: Update GitHub Profile
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - today.py
+      - cache/requirements.txt
+      - .github/workflows/build.yml
   schedule:
-    - cron: "0 1 * * *"
+    - cron: "17 1 * * *"
 
 permissions:
   contents: write
@@ -11,6 +18,9 @@ permissions:
 jobs:
   update-profile:
     runs-on: ubuntu-latest
+    concurrency:
+      group: update-github-profile
+      cancel-in-progress: false
 
     steps:
       - name: Checkout repository
