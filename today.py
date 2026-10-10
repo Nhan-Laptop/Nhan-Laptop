@@ -542,7 +542,7 @@ if __name__ == '__main__':
     formatter('age calculation', age_time)
     star_data, star_time = perf_counter(graph_repos_stars, 'stars', ['OWNER'])
     repo_data, repo_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
-    contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER', 'COLLABORATOR', 'ORGANIZATION_MEMBER'])
+    contrib_data, contrib_time = perf_counter(graph_repos_stars, 'repos', ['OWNER'])
     follower_data, follower_time = perf_counter(follower_getter, USER_NAME)
     commit_data = None
     total_loc = None
